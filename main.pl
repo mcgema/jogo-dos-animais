@@ -19,6 +19,10 @@ verifica_resposta(Animal, InputJogador) :-
         (InputJogador=n, write("OK... Você venceu..."), nl)
     ).
 
+adiciona_animal(Animal) :-
+    % TODO: Função para adicionar animal à estrutura da árvore
+    ln.
+
 save :-
     tell('jogo_atual.txt'),
     listing(pergunta_inicial), listing(pergunta_s), listing(pergunta_n),
@@ -33,6 +37,10 @@ play :-
     pergunta_inicial(PerguntaInicial),
     procura_animal(PerguntaInicial, Animal),
     verifica_resposta(Animal, Resultado),
+    (
+        (Resultado=s, nl);
+        (Resultado=n, adiciona_animal(Animal), write("O jogo foi atualizado!"), nl)
+    ),
     save,
     write("Jogar novamente? (S/N): "), nl, 
     read(InputJogador),
