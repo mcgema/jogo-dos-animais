@@ -1,0 +1,17 @@
+pergunta_inicial("É um mamífero?").
+
+:- dynamic pergunta_s/2.
+    pergunta_sim("É um mamífero?", "Possui listras?").
+    pergunta_sim("É uma ave?", "Voa?").
+
+:- dynamic pergunta_n/2.
+    pergunta_nao("É um mamífero?", "É uma ave?").
+
+:- dynamic animal_s/2.
+    animal_sim("Possui listras?", "Zebra").
+    animal_sim("Voa?", "Águia").
+
+:- dynamic animal_n/2.
+    animal_nao("Possui listras?", "Leão").
+    animal_nao("Voa?", "Pinguim").
+    animal_nao("É um passaro?", "Lagarto").
